@@ -1,11 +1,20 @@
-
 /** Array Functions **/
 /*
 0. Write a function that receives the array below as parameters and returns a new array which has all the elements added with 2
 */
 var strArr = ['13', '2', '34', '14', '5', '86', '3.46'];
 
-console.log('Typecast: ', typeCastAndAdd(strArr));
+function typeCastAndAdd(params) {
+    params = params.map(Number);
+    params = params.map(element => element +2)
+    console.log('Typecast: ', params)
+}
+typeCastAndAdd(strArr)
+
+// console.log('Typecast: ',typeCastAndAdd(strArr));  !!!!! Undefined !!!! 
+
+
+
 
 /* 
 1. Implement a function that receives an array of objects and a key name and returns an array with all the values corresponding to the key of the objects in the array.
