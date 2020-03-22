@@ -7,18 +7,14 @@ var strArr = ['13', '2', '34', '14', '5', '86', '3.46'];
 function typeCastAndAdd(params) {
     params = params.map(Number);
     params = params.map(element => element +2)
-    console.log('Typecast: ', params)
+    return params
 }
-typeCastAndAdd(strArr)
-
-// console.log('Typecast: ',typeCastAndAdd(strArr));  !!!!! Undefined !!!! 
-
-
+console.log('Typecast: ',typeCastAndAdd(strArr))
 
 
 /* 
 1. Implement a function that receives an array of objects and a key name and returns an array with all the values corresponding to the key of the objects in the array.
-*/
+// */
 const demoArr = [
   {id: 1, color: 'red', height: 15, width: 20, distance: 10},
   {id: 2, color: 'green', height: 5, width: 30, distance: 15},
@@ -29,16 +25,38 @@ const demoArr = [
 ];
 
 
-console.log(pluck(demoArr, 'color'));  // => ['red', 'green', 'turqoize' .......];
+function pluck(arr, key) {
+  arr = arr.map(el => el.color)
+  return arr;
+}
+
+console.log(pluck(demoArr, 'color'));  // NOT working with other key, for exam: id, or width
+
+
 
 /*
 2. Implement a function that returns the area of all elements in the above array, area = height * width.
 */
+
+
+function calculateArea(arr) {
+  arr = arr.map(el => el.height * el.width)
+  return arr;
+}
+
 console.log(calculateArea(demoArr));
 
 /*
 3. Write a function that returns a subset of the above array where the elements have an area smaller or equal to 100
 */
+
+
+function filterArr(arr) {
+    arr = arr.map(el => el.height * el.width)
+    arr = arr.filter(el => el<=100)
+    return arr;
+}
+
 console.log(filterArr(demoArr));
 
 
