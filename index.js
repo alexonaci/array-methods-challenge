@@ -82,7 +82,14 @@ console.log(findColor(demoArr, "crimson"));
 /*
 6. Write a function that returns true if all elements in the array have the area > = 10, false otherwise.
 */
-//console.log(areasAreBigger(demoArr, 10));
+
+console.log("============");
+console.log("Exercise 6:");
+
+let areasAreBigger = (objArr, num) =>
+    objArr.every(item => item["height"] * item["width"] >= num);
+
+console.log(areasAreBigger(demoArr, 10));
 
 /*
 7. Write a function that returns true if at least one of the array elements has the color 'green';
