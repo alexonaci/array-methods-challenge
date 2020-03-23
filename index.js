@@ -106,7 +106,19 @@ console.log(atLeastOneIsOfColor(demoArr, "balarie"));
 /*
 8. Write a function that returns the total distance (the sum of the element distances)
 */
-//console.log("Sum of distances: ", sumOfDistances(demoArr));
+
+console.log("============");
+console.log("Exercise 8:");
+
+const sumOfDistances = objArr => {
+    let sum = 0;
+    objArr.forEach(item => {
+        sum += item["distance"];
+    });
+    return sum;
+};
+
+console.log("Sum of distances: ", sumOfDistances(demoArr));
 
 /*
 9. Write a function that returns an object that counts how many times each color appears in the object array. {red: 2, blue: 1, etc ...}
