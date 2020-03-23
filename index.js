@@ -71,7 +71,21 @@ console.log(reject(demoArr, iterator)); // return an array of objects with heigh
 /*
 5. Write a function that return the element with the color 'crimson'
 */
-console.log(findColor(demoArr, 'crimson'));
+
+function findColor(arr, key) {
+    arr = arr.map((el)=> {
+        el = el.color;
+        if (el == key){
+          arr = arr.find(el => el.color == key);
+          console.log(arr)
+        }
+        return arr;
+    });
+    return arr;
+  };
+findColor(demoArr, 'crimson'); 
+
+// console.log(findColor(demoArr, 'crimson'));  NOT QUITE WORKING AS EXPECTED
 
 /*
 6. Write a function that returns true if all elements in the array have the area > = 10, false otherwise.
@@ -101,9 +115,22 @@ console.log('Unique Colors: ', uniqueColors(demoArr));
 /*
 11. Write a function which inverts two numbers.
 */
+
 let a = 5, b = 8;
 
+[a, b] = [b, a];
 console.log('A:', a, 'B:', b);
+
+//OR : 
+// a = b + (b=a, 0)
+// console.log('A:', a, 'B:', b);
+
+
+
+
+
+
+
 
 /*
 12. Using the array below, get a variable that contains an array of objects structured like this:
