@@ -39,7 +39,6 @@ console.log("Exercise 2:");
 const calculateArea = objArr => {
     let sum = 0;
     objArr.map(item => {
-        item["height"];
         sum += item["height"] * item["width"];
     });
     return sum;
@@ -54,7 +53,10 @@ console.log(calculateArea(demoArr));
 console.log("============");
 console.log("Exercise 3:");
 
-// console.log(filterArr(demoArr));
+const filterArr = objArr =>
+    objArr.filter(item => item["height"] * item["width"] <= 100);
+
+console.log(filterArr(demoArr));
 
 /*
 4. Implement a function called reject, which receives an array and an iterator function.
