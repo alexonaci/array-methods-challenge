@@ -64,12 +64,20 @@ The iterator function receives each element in the array as a parameter and must
 If it returns true, the element will not be included by the parent function in the resulting array.
 If returns false it will be included.
 */
+
 //console.log(reject(demoArr, iterator)); // return an array of objects with height < 10
 
 /*
 5. Write a function that return the element with the color 'crimson'
 */
-//console.log(findColor(demoArr, "crimson"));
+
+console.log("============");
+console.log("Exercise 5:");
+
+const findColor = (objArr, color) =>
+    objArr.filter(item => item["color"] === color);
+
+console.log(findColor(demoArr, "crimson"));
 
 /*
 6. Write a function that returns true if all elements in the array have the area > = 10, false otherwise.
