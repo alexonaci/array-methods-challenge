@@ -1,9 +1,19 @@
-
 /** Array Functions **/
 /*
 0. Write a function that receives the array below as parameters and returns a new array which has all the elements added with 2
 */
 var strArr = ['13', '2', '34', '14', '5', '86', '3.46'];
+
+function typeCastAndAdd(arr) {
+  let numsArr = arr.map(Number);
+  let mapped = numsArr.map(str => str + 2);
+  return mapped;
+}
+
+// function typeCastAndAdd(arr){
+//   let mapped = arr.map(str => str + 2);
+//   return mapped;
+// }
 
 console.log('Typecast: ', typeCastAndAdd(strArr));
 
@@ -11,25 +21,37 @@ console.log('Typecast: ', typeCastAndAdd(strArr));
 1. Implement a function that receives an array of objects and a key name and returns an array with all the values corresponding to the key of the objects in the array.
 */
 const demoArr = [
-  {id: 1, color: 'red', height: 15, width: 20, distance: 10},
-  {id: 2, color: 'green', height: 5, width: 30, distance: 15},
-  {id: 3, color: 'turqoize', height: 7, width: 9, distance: 8},
-  {id: 4, color: 'blue', height: 2, width: 3, distance: 3},
-  {id: 5, color: 'red', height: 10, width: 10, distance: 2},
-  {id: 6, color: 'crimson', height: 7, width: 8, distance: 16},
+  { id: 1, color: 'red', height: 15, width: 20, distance: 10 },
+  { id: 2, color: 'green', height: 5, width: 30, distance: 15 },
+  { id: 3, color: 'turqoize', height: 7, width: 9, distance: 8 },
+  { id: 4, color: 'blue', height: 2, width: 3, distance: 3 },
+  { id: 5, color: 'red', height: 10, width: 10, distance: 2 },
+  { id: 6, color: 'crimson', height: 7, width: 8, distance: 16 },
 ];
 
+function pluck(array, keyName) {
+  return array.map(element => element[keyName]);
+}
 
 console.log(pluck(demoArr, 'color'));  // => ['red', 'green', 'turqoize' .......];
 
 /*
 2. Implement a function that returns the area of all elements in the above array, area = height * width.
 */
+
+function calculateArea(array) {
+  return array.map(element => element.height * element.width);
+}
+
 console.log(calculateArea(demoArr));
 
 /*
 3. Write a function that returns a subset of the above array where the elements have an area smaller or equal to 100
 */
+function filterArr(array){
+  return calculateArea(demoArr).filter(area => area <= 100);
+}
+
 console.log(filterArr(demoArr));
 
 
@@ -39,6 +61,20 @@ The iterator function receives each element in the array as a parameter and must
 If it returns true, the element will not be included by the parent function in the resulting array.
 If returns false it will be included.
 */
+
+function iterator(element) {
+  if (element.height < 10) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function reject(array, iterator){
+  let included = array.filter(element => !iterator(element));
+  return included;
+}
+
 console.log(reject(demoArr, iterator)); // return an array of objects with height < 10
 
 /*
@@ -86,9 +122,9 @@ console.log('A:', a, 'B:', b);
 ]
 */
 const classes = [
-  [ 'Chemistry', '9AM', 'Mr. Darnick' ],
-  [ 'Physics', '10:15AM', 'Mrs. Lithun'],
-  [ 'Math', '11:30AM', 'Mrs. Vitalis' ]
+  ['Chemistry', '9AM', 'Mr. Darnick'],
+  ['Physics', '10:15AM', 'Mrs. Lithun'],
+  ['Math', '11:30AM', 'Mrs. Vitalis']
 ];
 
 const objClasses = [];
