@@ -3,9 +3,10 @@
 0. Write a function that receives the array below as parameters and returns a new array which has all the elements added with 2
 */
 var strArr = ["13", "2", "34", "14", "5", "86", "3.46"];
+
 const typeCastAndAdd = arr => arr.map(item => (Number(item) + 2).toString());
 
-console.log("Typecast: ", typeCastAndAdd(strArr));
+// console.log("Typecast: ", typeCastAndAdd(strArr));
 
 /* 
 1. Implement a function that receives an array of objects and a key name and returns an array with all the values corresponding to the key of the objects in the array.
@@ -19,7 +20,9 @@ const demoArr = [
     { id: 6, color: "crimson", height: 7, width: 8, distance: 16 }
 ];
 
-//console.log(pluck(demoArr, "color")); // => ['red', 'green', 'turqoize' .......];
+const pluck = (objArr, key) => Array.from(objArr.map(item => item[key]));
+
+console.log(pluck(demoArr, "color")); // => ['red', 'green', 'turqoize' .......];
 
 /*
 2. Implement a function that returns the area of all elements in the above array, area = height * width.
