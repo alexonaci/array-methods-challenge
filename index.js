@@ -94,7 +94,14 @@ console.log(areasAreBigger(demoArr, 10));
 /*
 7. Write a function that returns true if at least one of the array elements has the color 'green';
 */
-//console.log(atLeastOneIsOfColor(demoArr, "balarie"));
+
+console.log("============");
+console.log("Exercise 7:");
+
+const atLeastOneIsOfColor = (objArr, color) =>
+    objArr.some(item => item["color"] === color);
+
+console.log(atLeastOneIsOfColor(demoArr, "balarie"));
 
 /*
 8. Write a function that returns the total distance (the sum of the element distances)
