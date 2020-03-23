@@ -2,15 +2,21 @@
 /*
 0. Write a function that receives the array below as parameters and returns a new array which has all the elements added with 2
 */
+console.log("============");
+console.log("Exercise 0:");
+
 var strArr = ["13", "2", "34", "14", "5", "86", "3.46"];
 
 const typeCastAndAdd = arr => arr.map(item => (Number(item) + 2).toString());
 
-// console.log("Typecast: ", typeCastAndAdd(strArr));
+console.log("Typecast: ", typeCastAndAdd(strArr));
 
 /* 
 1. Implement a function that receives an array of objects and a key name and returns an array with all the values corresponding to the key of the objects in the array.
 */
+console.log("============");
+console.log("Exercise 1:");
+
 const demoArr = [
     { id: 1, color: "red", height: 15, width: 20, distance: 10 },
     { id: 2, color: "green", height: 5, width: 30, distance: 15 },
@@ -27,12 +33,28 @@ console.log(pluck(demoArr, "color")); // => ['red', 'green', 'turqoize' .......]
 /*
 2. Implement a function that returns the area of all elements in the above array, area = height * width.
 */
-//console.log(calculateArea(demoArr));
+console.log("============");
+console.log("Exercise 2:");
+
+const calculateArea = objArr => {
+    let sum = 0;
+    objArr.map(item => {
+        item["height"];
+        sum += item["height"] * item["width"];
+    });
+    return sum;
+};
+
+console.log(calculateArea(demoArr));
 
 /*
 3. Write a function that returns a subset of the above array where the elements have an area smaller or equal to 100
 */
-//console.log(filterArr(demoArr));
+
+console.log("============");
+console.log("Exercise 3:");
+
+// console.log(filterArr(demoArr));
 
 /*
 4. Implement a function called reject, which receives an array and an iterator function.
