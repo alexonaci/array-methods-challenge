@@ -133,10 +133,18 @@ console.log("Sum of distances: ", sumOfDistances(demoArr));
 /*
 11. Write a function which inverts two numbers.
 */
+
+console.log("============");
+console.log("Exercise 11:");
+
 let a = 5,
     b = 8;
 
-//console.log("A:", a, "B:", b);
+(function() {
+    [a, b] = [b, a];
+})();
+
+console.log("A:", a, "B:", b);
 
 /*
 12. Using the array below, get a variable that contains an array of objects structured like this:
