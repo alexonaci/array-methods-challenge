@@ -181,12 +181,20 @@ console.log("A:", a, "B:", b);
   ...
 ]
 */
+
+console.log("============");
+console.log("Exercise 12:");
+
 const classes = [
     ["Chemistry", "9AM", "Mr. Darnick"],
     ["Physics", "10:15AM", "Mrs. Lithun"],
     ["Math", "11:30AM", "Mrs. Vitalis"]
 ];
 
-const objClasses = [];
+const key = ["subject", "time", "teacher"];
 
-//console.log(objClasses);
+const objClasses = classes.map(item =>
+    item.reduce((acc, val, ind) => ((acc[key[ind]] = val), acc), {})
+);
+
+console.log(objClasses);
