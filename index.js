@@ -123,7 +123,7 @@ console.log("Sum of distances: ", sumOfDistances(demoArr));
 /*
 9. Write a function that returns an object that counts how many times each color appears in the object array. {red: 2, blue: 1, etc ...}
 */
-//console.log("Number of colors: ", noColors(demoArr));
+// console.log("Number of colors: ", noColors(demoArr));
 
 /*
 10. Write a function that returns an array with all elements having a unique color. Any element after the first one that has a color that would repeat is not included in the array.
@@ -133,10 +133,10 @@ console.log("============");
 console.log("Exercise 10:");
 
 function uniqueColors(objArr) {
-    return objArr.filter(function(filterItem, pos, array) {
+    return objArr.filter((filterItem, pos, array) => {
         return (
             array
-                .map(function(mapItem) {
+                .map(mapItem => {
                     return mapItem["color"];
                 })
                 .indexOf(filterItem["color"]) === pos
