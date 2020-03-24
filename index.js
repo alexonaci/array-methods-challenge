@@ -123,7 +123,19 @@ console.log("Sum of distances: ", sumOfDistances(demoArr));
 /*
 9. Write a function that returns an object that counts how many times each color appears in the object array. {red: 2, blue: 1, etc ...}
 */
-// console.log("Number of colors: ", noColors(demoArr));
+
+console.log("============");
+console.log("Exercise 9:");
+
+const noColors = objArr => {
+    const list = {};
+    objArr.forEach(item => {
+        list[item.color] = (list[item.color] || 0) + 1;
+    });
+    return list;
+};
+
+console.log("Number of colors: ", noColors(demoArr));
 
 /*
 10. Write a function that returns an array with all elements having a unique color. Any element after the first one that has a color that would repeat is not included in the array.
