@@ -65,7 +65,23 @@ If it returns true, the element will not be included by the parent function in t
 If returns false it will be included.
 */
 
-//console.log(reject(demoArr, iterator)); // return an array of objects with height < 10
+console.log("============");
+console.log("Exercise 4:");
+
+const arr = [];
+
+const reject = (objArr, callBack) => {
+    objArr.forEach(item => {
+        if (!callBack(item)) {
+            arr.push(item);
+        }
+    });
+    return arr;
+};
+
+const iterator = elem => (elem["height"] >= 10 ? true : false);
+
+console.log(reject(demoArr, iterator)); // return an array of objects with height < 10
 
 /*
 5. Write a function that return the element with the color 'crimson'
