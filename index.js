@@ -128,7 +128,23 @@ console.log("Sum of distances: ", sumOfDistances(demoArr));
 /*
 10. Write a function that returns an array with all elements having a unique color. Any element after the first one that has a color that would repeat is not included in the array.
 */
-//console.log("Unique Colors: ", uniqueColors(demoArr));
+
+console.log("============");
+console.log("Exercise 10:");
+
+function uniqueColors(objArr) {
+    return objArr.filter(function(filterItem, pos, array) {
+        return (
+            array
+                .map(function(mapItem) {
+                    return mapItem["color"];
+                })
+                .indexOf(filterItem["color"]) === pos
+        );
+    });
+}
+
+console.log("Unique Colors: ", uniqueColors(demoArr));
 
 /*
 11. Write a function which inverts two numbers.
