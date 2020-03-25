@@ -24,20 +24,20 @@ const demoArr = [
   {id: 6, color: 'crimson', height: 7, width: 8, distance: 16},
 ];
 
-
-function pluck(arr, key) {
-  arr = arr.map(el => el.color)
+function pluck(arr, key) {  
+  arr = arr.map(el => el[key])
   return arr;
 }
 
-console.log(pluck(demoArr, 'color'));  // NOT working with other key, for exam: id, or width
+console.log(pluck(demoArr, 'color'))
+
+
 
 
 
 /*
 2. Implement a function that returns the area of all elements in the above array, area = height * width.
 */
-
 
 function calculateArea(arr) {
   arr = arr.map(el => el.height * el.width)
@@ -49,7 +49,6 @@ console.log(calculateArea(demoArr));
 /*
 3. Write a function that returns a subset of the above array where the elements have an area smaller or equal to 100
 */
-
 
 function filterArr(arr) {
     arr = arr.map(el => el.height * el.width)
@@ -66,7 +65,7 @@ The iterator function receives each element in the array as a parameter and must
 If it returns true, the element will not be included by the parent function in the resulting array.
 If returns false it will be included.
 */
-console.log(reject(demoArr, iterator)); // return an array of objects with height < 10
+// console.log(reject(demoArr, iterator)); // return an array of objects with height < 10
 
 /*
 5. Write a function that return the element with the color 'crimson'
@@ -85,12 +84,32 @@ function findColor(arr, key) {
   };
 findColor(demoArr, 'crimson'); 
 
-// console.log(findColor(demoArr, 'crimson'));  NOT QUITE WORKING AS EXPECTED
+// NOT QORKING WITH RED ( Multiple same values)
+
+
+
+
+
+
 
 /*
 6. Write a function that returns true if all elements in the array have the area > = 10, false otherwise.
+
 */
-console.log(areasAreBigger(demoArr, 10))
+
+function areasAreBigger(arr, num) {
+  arr = arr.map(el => el.height * el.width)
+  let result = arr.every(function (e) {
+  if (e >= num) {
+      return true;
+  }
+});
+
+console.log(result);
+}
+
+
+areasAreBigger(demoArr, 10)
 
 /*
 7. Write a function that returns true if at least one of the array elements has the color 'green';
