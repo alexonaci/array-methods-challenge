@@ -12,6 +12,8 @@ function typeCastAndAdd(params) {
 console.log('Typecast: ',typeCastAndAdd(strArr))
 
 
+
+
 /* 
 1. Implement a function that receives an array of objects and a key name and returns an array with all the values corresponding to the key of the objects in the array.
 // */
@@ -84,7 +86,7 @@ function findColor(arr, key) {
   };
 findColor(demoArr, 'crimson'); 
 
-// NOT QORKING WITH RED ( Multiple same values)
+// NOT WORKING WITH RED ( Multiple same values)
 
 
 
@@ -119,6 +121,15 @@ console.log(atLeastOneIsOfColor(demoArr, 'balarie'));
 /*
 8. Write a function that returns the total distance (the sum of the element distances)
 */
+
+
+function sumOfDistances(arr) {
+  let sum = 0
+  for (let i=0; i<arr.length; i++) {
+    sum = sum + arr[i].distance;
+  }
+  return sum
+}
 console.log('Sum of distances: ', sumOfDistances(demoArr));
 
 /*
