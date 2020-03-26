@@ -7,7 +7,8 @@ console.log("Exercise 0:");
 
 var strArr = ["13", "2", "34", "14", "5", "86", "3.46"];
 
-const typeCastAndAdd = arr => arr.map(item => (Number(item) + 2).toString());
+const typeCastAndAdd = arr =>
+    arr.map(item => (parseFloat(item) + 2).toString());
 
 console.log("Typecast: ", typeCastAndAdd(strArr));
 
@@ -26,7 +27,7 @@ const demoArr = [
     { id: 6, color: "crimson", height: 7, width: 8, distance: 16 }
 ];
 
-const pluck = (objArr, key) => Array.from(objArr.map(item => item[key]));
+const pluck = (objArr, key) => objArr.map(item => item[key]);
 
 console.log(pluck(demoArr, "color")); // => ['red', 'green', 'turqoize' .......];
 
@@ -39,7 +40,7 @@ console.log("Exercise 2:");
 const calculateArea = objArr => {
     let sum = 0;
     objArr.map(item => {
-        sum += item["height"] * item["width"];
+        sum += item.height * item.width;
     });
     return sum;
 };
@@ -54,7 +55,7 @@ console.log("============");
 console.log("Exercise 3:");
 
 const filterArr = objArr =>
-    objArr.filter(item => item["height"] * item["width"] <= 100);
+    objArr.filter(item => item.height * item.width <= 100);
 
 console.log(filterArr(demoArr));
 
@@ -79,7 +80,7 @@ const reject = (objArr, callBack) => {
     return arr;
 };
 
-const iterator = elem => (elem["height"] >= 10 ? true : false);
+const iterator = elem => (elem.height >= 10 ? true : false);
 
 console.log(reject(demoArr, iterator)); // return an array of objects with height < 10
 
@@ -91,7 +92,7 @@ console.log("============");
 console.log("Exercise 5:");
 
 const findColor = (objArr, color) =>
-    objArr.filter(item => item["color"] === color);
+    objArr.filter(item => item.color === color);
 
 console.log(findColor(demoArr, "crimson"));
 
@@ -103,7 +104,7 @@ console.log("============");
 console.log("Exercise 6:");
 
 let areasAreBigger = (objArr, num) =>
-    objArr.every(item => item["height"] * item["width"] >= num);
+    objArr.every(item => item.height * item.width >= num);
 
 console.log(areasAreBigger(demoArr, 10));
 
@@ -115,7 +116,7 @@ console.log("============");
 console.log("Exercise 7:");
 
 const atLeastOneIsOfColor = (objArr, color) =>
-    objArr.some(item => item["color"] === color);
+    objArr.some(item => item.color === color);
 
 console.log(atLeastOneIsOfColor(demoArr, "balarie"));
 
@@ -129,7 +130,7 @@ console.log("Exercise 8:");
 const sumOfDistances = objArr => {
     let sum = 0;
     objArr.forEach(item => {
-        sum += item["distance"];
+        sum += item.distance;
     });
     return sum;
 };
@@ -165,9 +166,9 @@ function uniqueColors(objArr) {
         return (
             array
                 .map(mapItem => {
-                    return mapItem["color"];
+                    return mapItem.color;
                 })
-                .indexOf(filterItem["color"]) === pos
+                .indexOf(filterItem.color) === pos
         );
     });
 }
@@ -209,8 +210,12 @@ const classes = [
 
 const key = ["subject", "time", "teacher"];
 
-const objClasses = classes.map(item =>
-    item.reduce((acc, val, ind) => ((acc[key[ind]] = val), acc), {})
-);
+const objClasses = classes.map(item => {
+    // console.log("Item= ", item);
+    return item.reduce((accumulator, currentValue, currentIndex) => {
+        // console.log("currentKeyIndex= ", currentIndex, "; Accumulator= ", accumulator, "; currentValue= ", currentValue);
+        return (accumulator[key[currentIndex]] = currentValue), accumulator;
+    }, {});
+});
 
 console.log(objClasses);
