@@ -1,4 +1,4 @@
-// WORK ON 4, 5, 7,  9, 10, 12 
+// WORK ON 4, 5, 7, 10, 12 
 //IMPROVE : 6 
 
 
@@ -59,22 +59,103 @@ const demoArr = [
     {id: 4, color: 'blue', height: 2, width: 3, distance: 3},
     {id: 5, color: 'red', height: 10, width: 10, distance: 2},
     {id: 6, color: 'crimson', height: 7, width: 8, distance: 16},
+    {id: 7, color: 'crimson', height: 7, width: 8, distance: 16},
   ];
  
 
-  function noColors(array, color) {
-    var count = 0;
-    for (var i = 0; i < array.length; i++) {
-        if (array[i].color == array[color]) {
-            count++;
-        }
+
+  function areasAreBigger(arr, num) {
+    arr = arr.map(el => el.height * el.width)
+    let result = arr.every(function (e) {
+    if (e >= num) {
+        return true;
     }
-    return count;
-}
+  });
+  
+  console.log(result);
+  }
+  
+  
+  areasAreBigger(demoArr, 10)
+  
 
-// noColors(list, 2); // returns 2
-// noColors(list, 1); 
 
 
 
- noColors(demoArr, red)
+
+
+// const noColors = objArr => {
+//   const list = {};
+//   objArr.forEach(item => {
+//       list[item.color] = (list[item.color] || 0) + 1;
+//   });
+//   return list;
+// };
+// // function noColor(arr) {
+// let countObj = {};
+// let countFunc = function(color) {
+//   for (let i=0; i<arr.length; i++){
+//     let count;
+//     arr.map((color) => (color == arr[i]['color']))
+//     count = arr.length
+//   countObj[arr[i].color] = count; 
+//   }
+//   console.log(countObj)
+//   // countObj[color] = ++countObj[color] || color;
+  
+// }
+// arr.forEach(countFunc);
+
+
+
+// console.log(noColors(demoArr))
+
+  // function getOccurrence(array, color) {
+  //   var count = {};
+  //   for (let i=0; i<array.length; i++){
+         
+  //     if(array[i].color == array[i]['color']){
+  //         count[array[i]['color']] ++
+  //     }
+  //     // array.forEach((v) => (v == array[i]['color'] && count++));
+      
+  //   }
+  //   console.log(count)
+  // }
+
+  
+
+
+//   let countObj = {};
+// let arr = [1,2,3,1,2,3,4];
+
+// let countFunc = keys => {
+//   countObj[keys] = ++countObj[keys] || 1;
+// }
+
+// arr.forEach(countFunc);
+
+// for (let i=0; i<demoArr.length; i++){
+
+//   let count = {};
+//   count[demoArr[i]['color']] = getOccurrence();
+//   console.log(count)
+//   }
+
+
+
+
+
+
+//  getOccurrence(demoArr, color)
+
+
+//  var a = [1,2,3,1,2,3,4];
+
+
+
+// var map = demoArr.reduce(function(obj, b) {
+//   obj[b] = ++obj[b] || 'red';
+//   return obj;
+// }, {});
+// console.log(map)

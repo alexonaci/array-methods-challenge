@@ -135,6 +135,15 @@ console.log('Sum of distances: ', sumOfDistances(demoArr));
 /*
 9. Write a function that returns an object that counts how many times each color appears in the object array. {red: 2, blue: 1, etc ...}
 */
+
+
+function noColors (objArr) {
+  let count = {};
+  objArr.forEach(elem => {
+      count[elem.color] = (count[elem.color] || 0) + 1;
+  });
+  return count;
+};
 console.log('Number of colors: ', noColors(demoArr));
 
 /*
