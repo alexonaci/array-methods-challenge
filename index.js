@@ -10,11 +10,6 @@ function typeCastAndAdd(arr) {
   return mapped;
 }
 
-// function typeCastAndAdd(arr){
-//   let mapped = arr.map(str => str + 2);
-//   return mapped;
-// }
-
 console.log('Typecast: ', typeCastAndAdd(strArr));
 
 /* 
@@ -48,8 +43,10 @@ console.log(calculateArea(demoArr));
 /*
 3. Write a function that returns a subset of the above array where the elements have an area smaller or equal to 100
 */
-function filterArr(array){
-  return calculateArea(demoArr).filter(area => area <= 100);
+function filterArr(array) {
+  return array
+    .map(element => element.height * element.width)
+    .filter(area => area <= 100);
 }
 
 console.log(filterArr(demoArr));
@@ -70,7 +67,7 @@ function iterator(element) {
   }
 }
 
-function reject(array, iterator){
+function reject(array, iterator) {
   let included = array.filter(element => !iterator(element));
   return included;
 }
@@ -80,37 +77,113 @@ console.log(reject(demoArr, iterator)); // return an array of objects with heigh
 /*
 5. Write a function that return the element with the color 'crimson'
 */
+
+// function findColor(array, color){
+//   for(let i = 0; i < array.length; i++){
+//     if(array[i].color === color){
+//       return array[i];
+//     }
+//   }
+// }
+
+function findColor(array, color) {
+  return array.filter((element) => {
+    if (element.color === color) {
+      return true;
+    };
+  });
+};
+
 console.log(findColor(demoArr, 'crimson'));
 
 /*
 6. Write a function that returns true if all elements in the array have the area > = 10, false otherwise.
 */
+
+function areasAreBigger(array, num) {
+  return array
+    .map(element => element.height * element.width)
+    .filter(area => {
+      if (area >= num) {
+        return true;
+      } else {
+        return false;
+      };
+    });
+};
+
 console.log(areasAreBigger(demoArr, 10))
 
 /*
 7. Write a function that returns true if at least one of the array elements has the color 'green';
 */
+
+function atLeastOneIsOfColor(array, color) {
+  let colors = array.filter(element => {
+    if (element.color === color) {
+      return true;
+    } else {
+      return false;
+    };
+  });
+  if(colors.length === 0){
+    return false
+  } else {
+    return true
+  };
+};
+
 console.log(atLeastOneIsOfColor(demoArr, 'balarie'));
 
 /*
 8. Write a function that returns the total distance (the sum of the element distances)
 */
+
+function sumOfDistances(array) {
+  let initialValue = 0;
+  let sum = array.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue.distance;
+  }, initialValue);
+  return sum;
+};
+
 console.log('Sum of distances: ', sumOfDistances(demoArr));
 
 /*
 9. Write a function that returns an object that counts how many times each color appears in the object array. {red: 2, blue: 1, etc ...}
 */
+
+function noColors(array) {
+  let howManyTimes = {};
+  array.forEach(element => {
+    if (howManyTimes[element.color] === undefined) {
+      howManyTimes[element.color] = 1;
+    } else {
+      howManyTimes[element.color] = howManyTimes[element.color] + 1;
+    }
+  });
+  return howManyTimes;
+}
+
 console.log('Number of colors: ', noColors(demoArr));
 
 /*
 10. Write a function that returns an array with all elements having a unique color. Any element after the first one that has a color that would repeat is not included in the array.
 */
+
+function uniqueColors(array) {
+  let unique = array.map(item => item.color)
+    .filter((value, index, self) => self.indexOf(value) === index)
+  return unique;
+}
+
 console.log('Unique Colors: ', uniqueColors(demoArr));
 
 /*
 11. Write a function which inverts two numbers.
 */
 let a = 5, b = 8;
+[a, b] = [b, a];
 
 console.log('A:', a, 'B:', b);
 
@@ -127,6 +200,8 @@ const classes = [
   ['Math', '11:30AM', 'Mrs. Vitalis']
 ];
 
-const objClasses = [];
+const objClasses = classes.map(item => {
+  return { subject: item[0], time: item[1], teacher: item[2] }
+});
 
 console.log(objClasses);
