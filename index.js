@@ -184,6 +184,12 @@ const classes = [
   [ 'Math', '11:30AM', 'Mrs. Vitalis' ]
 ];
 
-const objClasses = [];
 
-console.log(objClasses);
+let arrayOfObjects = classes.map(elem => {
+  return { subject: elem[0],
+    time: elem[1],
+    teacher: elem[2]
+  }
+})
+
+console.log(arrayOfObjects)
