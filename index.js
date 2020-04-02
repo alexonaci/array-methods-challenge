@@ -1,4 +1,7 @@
 /** Array Functions **/
+
+
+
 /*
 0. Write a function that receives the array below as parameters and returns a new array which has all the elements added with 2
 */
@@ -9,7 +12,11 @@ function typeCastAndAdd(params) {
     params = params.map(element => element +2)
     return params
 }
-console.log('Typecast: ',typeCastAndAdd(strArr))
+
+console.log('Array methods challenge: 0');
+console.log('Typecast: ',typeCastAndAdd(strArr));
+console.log('*************************************************************************');
+
 
 
 
@@ -17,6 +24,8 @@ console.log('Typecast: ',typeCastAndAdd(strArr))
 /* 
 1. Implement a function that receives an array of objects and a key name and returns an array with all the values corresponding to the key of the objects in the array.
 // */
+
+
 const demoArr = [
   {id: 1, color: 'red', height: 15, width: 20, distance: 10},
   {id: 2, color: 'green', height: 5, width: 30, distance: 15},
@@ -31,9 +40,9 @@ function pluck(arr, key) {
   return arr;
 }
 
-console.log(pluck(demoArr, 'color'))
-
-
+console.log('Array methods challenge: 1');
+console.log(pluck(demoArr, 'color'));
+console.log('*************************************************************************');
 
 
 
@@ -46,7 +55,9 @@ function calculateArea(arr) {
   return arr;
 }
 
+console.log('Array methods challenge: 2');
 console.log(calculateArea(demoArr));
+console.log('*************************************************************************');
 
 /*
 3. Write a function that returns a subset of the above array where the elements have an area smaller or equal to 100
@@ -57,8 +68,9 @@ function filterArr(arr) {
     arr = arr.filter(el => el<=100)
     return arr;
 }
-
+console.log('Array methods challenge: 3');
 console.log(filterArr(demoArr));
+console.log('*************************************************************************');
 
 
 /*
@@ -84,8 +96,10 @@ function findColor(arr, key) {
     });
     return arr;
   };
-findColor(demoArr, 'crimson'); 
 
+console.log('Array methods challenge: 5'); 
+findColor(demoArr, 'crimson'); 
+console.log('*************************************************************************');
 // NOT WORKING WITH RED ( Multiple same values)
 
 
@@ -110,13 +124,24 @@ function areasAreBigger(arr, num) {
 console.log(result);
 }
 
+console.log('Array methods challenge: 6'); 
+areasAreBigger(demoArr, 10);
+console.log('*************************************************************************');
 
-areasAreBigger(demoArr, 10)
+
 
 /*
 7. Write a function that returns true if at least one of the array elements has the color 'green';
 */
+function atLeastOneIsOfColor(arr, colorKey) {
+  const result = arr.filter(el => el.color == colorKey);
+  return (result.length > 0 ? true : false);
+};
+
+console.log('Array methods challenge: 7'); 
 console.log(atLeastOneIsOfColor(demoArr, 'balarie'));
+console.log('*************************************************************************');
+
 
 /*
 8. Write a function that returns the total distance (the sum of the element distances)
@@ -130,7 +155,12 @@ function sumOfDistances(arr) {
   }
   return sum
 }
+
+console.log('Array methods challenge: 8'); 
 console.log('Sum of distances: ', sumOfDistances(demoArr));
+console.log('*************************************************************************');
+
+
 
 /*
 9. Write a function that returns an object that counts how many times each color appears in the object array. {red: 2, blue: 1, etc ...}
@@ -144,12 +174,16 @@ function noColors (objArr) {
   });
   return count;
 };
+
+console.log('Array methods challenge: 9'); 
 console.log('Number of colors: ', noColors(demoArr));
+console.log('*************************************************************************');
+
 
 /*
 10. Write a function that returns an array with all elements having a unique color. Any element after the first one that has a color that would repeat is not included in the array.
 */
-console.log('Unique Colors: ', uniqueColors(demoArr));
+// console.log('Unique Colors: ', uniqueColors(demoArr));
 
 /*
 11. Write a function which inverts two numbers.
@@ -158,7 +192,10 @@ console.log('Unique Colors: ', uniqueColors(demoArr));
 let a = 5, b = 8;
 
 [a, b] = [b, a];
+
+console.log('Array methods challenge: 11'); 
 console.log('A:', a, 'B:', b);
+console.log('*************************************************************************');
 
 //OR : 
 // a = b + (b=a, 0)
@@ -192,4 +229,7 @@ let arrayOfObjects = classes.map(elem => {
   }
 })
 
-console.log(arrayOfObjects)
+
+console.log('Array methods challenge: 12'); 
+console.log(arrayOfObjects);
+console.log('*************************************************************************');
