@@ -1,7 +1,4 @@
 /** Array Functions **/
-
-
-
 /*
 0. Write a function that receives the array below as parameters and returns a new array which has all the elements added with 2
 */
@@ -11,13 +8,11 @@ function typeCastAndAdd(params) {
     params = params.map(Number);
     params = params.map(element => element +2)
     return params
-}
+};
 
 console.log('Array methods challenge: 0');
 console.log('Typecast: ',typeCastAndAdd(strArr));
 console.log('*************************************************************************');
-
-
 
 
 
@@ -36,9 +31,9 @@ const demoArr = [
 ];
 
 function pluck(arr, key) {  
-  arr = arr.map(el => el[key])
+  arr = arr.map(el => el[key]);
   return arr;
-}
+};
 
 console.log('Array methods challenge: 1');
 console.log(pluck(demoArr, 'color'));
@@ -51,10 +46,9 @@ console.log('*******************************************************************
 */
 
 function calculateArea(arr) {
-  arr = arr.map(el => el.height * el.width)
+  arr = arr.map(el => el.height * el.width);
   return arr;
-}
-
+};
 console.log('Array methods challenge: 2');
 console.log(calculateArea(demoArr));
 console.log('*************************************************************************');
@@ -64,10 +58,10 @@ console.log('*******************************************************************
 */
 
 function filterArr(arr) {
-    arr = arr.map(el => el.height * el.width)
-    arr = arr.filter(el => el<=100)
+    arr = arr.map(el => el.height * el.width);
+    arr = arr.filter(el => el<=100);
     return arr;
-}
+};
 console.log('Array methods challenge: 3');
 console.log(filterArr(demoArr));
 console.log('*************************************************************************');
@@ -79,7 +73,24 @@ The iterator function receives each element in the array as a parameter and must
 If it returns true, the element will not be included by the parent function in the resulting array.
 If returns false it will be included.
 */
-// console.log(reject(demoArr, iterator)); // return an array of objects with height < 10
+
+let arr = [];
+  const reject = (objArr, callBack) => {
+    objArr.forEach(item => {
+        if (!callBack(item)) {
+            arr.push(item);
+        }
+    });
+    return arr;
+};
+let iterator = elem => (elem["height"] >= 10 ? true : false); // return an array of objects with height < 10
+
+console.log('Array methods challenge: 4');
+console.log(reject(demoArr, iterator));  // return an array of objects with height < 10
+console.log('*************************************************************************');
+
+
+
 
 /*
 5. Write a function that return the element with the color 'crimson'
@@ -90,7 +101,7 @@ function findColor(arr, key) {
         el = el.color;
         if (el == key){
           arr = arr.find(el => el.color == key);
-          console.log(arr)
+          console.log(arr);
         }
         return arr;
     });
@@ -105,24 +116,20 @@ console.log('*******************************************************************
 
 
 
-
-
-
 /*
 6. Write a function that returns true if all elements in the array have the area > = 10, false otherwise.
 
 */
 
 function areasAreBigger(arr, num) {
-  arr = arr.map(el => el.height * el.width)
+  arr = arr.map(el => el.height * el.width);
   let result = arr.every(function (e) {
-  if (e >= num) {
-      return true;
-  }
-});
-
-console.log(result);
-}
+      if (e >= num) {
+          return true;
+      }
+    });
+  console.log(result);
+};
 
 console.log('Array methods challenge: 6'); 
 areasAreBigger(demoArr, 10);
@@ -149,12 +156,12 @@ console.log('*******************************************************************
 
 
 function sumOfDistances(arr) {
-  let sum = 0
+  let sum = 0;
   for (let i=0; i<arr.length; i++) {
     sum = sum + arr[i].distance;
-  }
-  return sum
-}
+  };
+  return sum;
+};
 
 console.log('Array methods challenge: 8'); 
 console.log('Sum of distances: ', sumOfDistances(demoArr));
@@ -184,6 +191,24 @@ console.log('*******************************************************************
 10. Write a function that returns an array with all elements having a unique color. Any element after the first one that has a color that would repeat is not included in the array.
 */
 // console.log('Unique Colors: ', uniqueColors(demoArr));
+function uniqueColors(arr) { 
+  let resArr = [];
+  arr.filter(function(item){
+    let i = resArr.findIndex(x => x.color == item.color);
+    if(i <= -1){
+      resArr.push({id: item.id, color: item.color, height: item.height, width: item.height, distance: item.distance});
+    };
+  });
+  return resArr;
+};
+
+
+console.log('Array methods challenge: 10'); 
+console.log('Unique Colors: ', uniqueColors(demoArr));
+console.log('*************************************************************************');
+
+
+
 
 /*
 11. Write a function which inverts two numbers.
@@ -191,19 +216,15 @@ console.log('*******************************************************************
 
 let a = 5, b = 8;
 
-[a, b] = [b, a];
+(function invertNumbers() {
+  [a, b] = [b, a];
+})();
+
+// Am incercat cu o functie cu parametrii x, y, dar cum a si b sunt declarate global cand fac console imi da valorile initiale. Nu stiu cum sa fac altfel :) 
 
 console.log('Array methods challenge: 11'); 
 console.log('A:', a, 'B:', b);
 console.log('*************************************************************************');
-
-//OR : 
-// a = b + (b=a, 0)
-// console.log('A:', a, 'B:', b);
-
-
-
-
 
 
 
@@ -223,13 +244,13 @@ const classes = [
 
 
 let arrayOfObjects = classes.map(elem => {
-  return { subject: elem[0],
-    time: elem[1],
-    teacher: elem[2]
-  }
-})
+  return { subject: elem[0], time: elem[1], teacher: elem[2] }
+});
 
 
 console.log('Array methods challenge: 12'); 
 console.log(arrayOfObjects);
 console.log('*************************************************************************');
+
+
+console.log('********************** THE END ******************************************');
